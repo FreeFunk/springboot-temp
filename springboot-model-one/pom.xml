@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!-- 父级应用继承 -->
+    <parent>
+        <artifactId>springboot-temp</artifactId>
+        <groupId>com.edgedo.temp</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 子模块模块基础配置 -->
+    <groupId>com.edgedo.model.one</groupId>
+    <artifactId>springboot-model-one</artifactId>
+    <name>springboot-model-one</name>
+    <description>springboot子模块</description>
+
+    <!-- 模块载入配置 -->
+    <dependencies>
+        <dependency>
+            <groupId>com.edgedo.core</groupId>
+            <artifactId>springboot-model-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- 模块打包基础配置 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

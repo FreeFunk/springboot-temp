@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 继承springboot父级jar -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.6.RELEASE</version>
+        <relativePath/>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 应用基础模块基础配置 -->
+    <groupId>com.edgedo.temp</groupId>
+    <artifactId>springboot-temp</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- 名称标识 -->
+    <name>springboot-temp</name>
+    <description>springboot项目模板应用基础</description>
+
+    <!-- 其他模块注入标识 -->
+    <modules>
+        <module>springboot-model-one</module>
+        <module>springboot-model-core</module>
+    </modules>
+
+    <!-- 统一配置jar版本号 -->
+    <properties>
+        <jdk.version>1.8</jdk.version>
+        <knife4j.version>2.0.2</knife4j.version>
+        <commons-lang3.version>3.8.1</commons-lang3.version>
+    </properties>
+
+    <!-- jar载入配置，在父级应用载入供各个模块继承使用 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 工具类模块 -->
+            <dependency>
+                <groupId>com.edgedo.core</groupId>
+                <artifactId>springboot-model-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- knife4j -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- apache -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <!-- 模块打包基础配置 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
+                    <compilerArgs>
+                        <arg>-XDignore.symbol.file</arg>
+                        <arg>-Xlint:all</arg>
+                    </compilerArgs>
+                    <fork>true</fork>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

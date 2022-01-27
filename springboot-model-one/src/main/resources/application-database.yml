@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      hosts:
+        - 112.74.36.1:27017
+      username: ontology
+      password: "!QAZ2wsx189"
+      authenticationDatabase: admin
+      database: dkp-owl-tag1
